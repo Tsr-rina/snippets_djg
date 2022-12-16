@@ -20,7 +20,7 @@ def snippet_new(request):
         form = SnippetForm(request.POST)
         if form.is_valid():
             snippet = form.save(commit=False)
-            anippet.created_by = request.user
+            snippet.created_by = request.user
             snippet.save()
             return redirect(snippet_edit, snippet_id=snippet.pk)
     else:
