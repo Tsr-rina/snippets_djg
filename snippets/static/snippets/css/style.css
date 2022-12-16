@@ -10,3 +10,12 @@ main {
     display: flex;
     flex-direction: column;
 }
+
+.snippet_date {
+    margin-bottom: 1rem;
+}
+
+.source-code {
+    padding: 1rem;
+    margin-bottom: 1rem;
+}

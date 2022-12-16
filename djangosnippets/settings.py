@@ -15,6 +15,9 @@ from pathlib import Path
 from .secret import SECRET_KEY
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+# __file__ ->ファイル名
+# resolve ->絶対パスに変換
+# parent -> 現在のパスの上位ディレクトリを参照
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'snippets.apps.SnippetsConfig',
     'django_bootstrap5',
+    'pygments_renderer',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +62,9 @@ ROOT_URLCONF = 'djangosnippets.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # テンプレートが格納されたフォルダを複数個リストで指定
+        'DIRS': [BASE_DIR / 'templates'],
+        # Trueだと各アプリケーション以下のtemplatesディレクトリを探索対象にする
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
