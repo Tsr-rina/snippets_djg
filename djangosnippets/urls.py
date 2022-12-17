@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', top, name='top'), # ビュー関数, URLの逆引き時に利用
     path('snippets/', include('snippets.urls')), # snippets/urls.pyの読み込み
+    path('accounts/', include('accounts.urls'))
 ]

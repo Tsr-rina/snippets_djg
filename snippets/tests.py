@@ -5,6 +5,8 @@ from snippets.models import Snippet
 from django.urls import resolve
 from django.contrib.auth import get_user_model
 
+# clientはHTTPのリクエストを送信した際の挙動を確認できる
+
 UserModel = get_user_model()
 
 class TopPageRenderSnippetsTest(TestCase):
@@ -45,6 +47,7 @@ class TopPageRenderSnippetsTest(TestCase):
 #     def test_top_returns_200(self):
 #         request = HttpRequest()
 #         response = top(request)
+#         # assertEqual(a,b) -> a==b
 #         self.assertEqual(response.status_code, 200)
     
 #     def test_top_returns_expected_content(self):
