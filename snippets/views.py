@@ -17,7 +17,9 @@ def top(request):
 @login_required
 def snippet_new(request):
     if request.method == "POST":
+        # SnippetFormのインスタンスを生成
         form = SnippetForm(request.POST)
+        # 受け取ったパラメータがデータベースに登録して良いものかどうかを検証する
         if form.is_valid():
             snippet = form.save(commit=False)
             snippet.created_by = request.user
@@ -29,6 +31,7 @@ def snippet_new(request):
 
 @login_required
 def snippet_edit(request, snippet_id):
+    # Snipppetからsnippet_idがあるかどうかを探してなかったら404を返す
     snippet = get_object_or_404(Snippet, pk=snippet_id)
     if snippet.created_by_id != request.user.id:
         return HttpResponse('このスニペットの編集の編集は許可されていません。')
