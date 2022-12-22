@@ -9,6 +9,7 @@ from snippets.forms import SnippetForm
 # Create your views here.
 
 # render ->レスポンスを生成するためのメソッド
+# createviewとか
 
 def top(request):
     # Snippetの一覧を取得
