@@ -40,6 +40,7 @@ def snippet_edit(request, snippet_id):
         return HttpResponse('このスニペットの編集の編集は許可されていません。')
     if request.method == "POST":
         form = SnippetForm(request.POST, instance=snippet)
+        # is_valid()でバリデーションする
         if form.is_valid():
             form.save()
             return redirect("snippet_detail", snippet_id=snippet_id)
