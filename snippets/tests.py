@@ -9,6 +9,9 @@ from django.contrib.auth import get_user_model
 
 UserModel = get_user_model()
 
+# テンプレートのテスト
+# formのテスト
+
 class TopPageRenderSnippetsTest(TestCase):
     def setUp(self):
         self.user = UserModel.objects.create(
