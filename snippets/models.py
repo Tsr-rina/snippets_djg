@@ -14,12 +14,15 @@ class Snippet(models.Model):
         # テーブル名を設定する
         db_table = "snippets"
 
+
     def __str__(self):
         return f'{self.pk} {self.title}'
 
 class Comment(models.Model):
     text = models.TextField("本文", blank=False)
     # 一対多のフィールを作成する
+    # verbose_nameで日本語表記にできる
+    # on_delete->モデルが削除されるときに実行されるやつ->参照しているオブジェクトが削除されたら一緒に削除する
     commented_to = models.ForeignKey(Snippet, verbose_name="スニペット", on_delete=models.CASCADE)
 
     class Meta:
